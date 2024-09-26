@@ -14,7 +14,7 @@ namespace PersonasMicroservice.Api.Controllers
         {
             _personaService = personaService;
         }
-        // GET
+
         [HttpGet]
         public async Task<IHttpActionResult> GetAll()
         {
@@ -24,29 +24,34 @@ namespace PersonasMicroservice.Api.Controllers
 
         [HttpGet]
         [Route("{id}")]
-        public async Task<IHttpActionResult> GetById(string id)
+        public async Task<IHttpActionResult> GetById(int id)
         {
-            return Ok();
+            var persona = await _personaService.GetById(id);
+            return Ok(persona);
         }
 
         [HttpPost]
-        public async Task<IHttpActionResult> Create(PersonaDTO personaDto)
+        [Route("{idTipoPersona}")]
+        public async Task<IHttpActionResult> Create(int idTipoPersona, [FromBody] PersonaDTO personaDto)
         {
-            return Ok();
+            string msj = await _personaService.Create(idTipoPersona, personaDto);
+            return Ok(msj);
         }
 
         [HttpPut]
         [Route("{id}")]
-        public async Task<IHttpActionResult> Update(string id, [FromBody] PersonaDTO personaDto)
+        public async Task<IHttpActionResult> Update(int id, [FromBody] PersonaDTO personaDto)
         {
-            return Ok();
+            string msj = await _personaService.Update(id, personaDto);
+            return Ok(msj);
         }
 
         [HttpDelete]
         [Route("{id}")]
-        public async Task<IHttpActionResult> Delete(string id)
+        public async Task<IHttpActionResult> Delete(int id)
         {
-            return Ok();
+            string msj = await _personaService.Delete(id);
+            return Ok(msj);
         }
 
 
