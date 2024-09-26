@@ -137,6 +137,11 @@
     <Compile Include="Infrastructure\DbContexts\PersonasContext.cs" />
     <Compile Include="Infrastructure\Repository\IPersonaRepository.cs" />
     <Compile Include="Infrastructure\Repository\PersonaRepository.cs" />
+    <Compile Include="Migrations\202409260251336_InitialCreate.cs" />
+    <Compile Include="Migrations\202409260251336_InitialCreate.Designer.cs">
+      <DependentUpon>202409260251336_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="SharedKernel\WebApiConfig.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -152,7 +157,11 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202409260251336_InitialCreate.resx">
+      <DependentUpon>202409260251336_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

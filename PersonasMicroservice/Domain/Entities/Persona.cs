@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PersonasMicroservice.Domain.Entities
 {
-    public abstract class Persona
+    public class Persona
     {
         public Persona()
         {

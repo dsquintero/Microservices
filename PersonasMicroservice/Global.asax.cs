@@ -1,4 +1,5 @@
 using PersonasMicroservice.Application.Services;
+using PersonasMicroservice.Infrastructure.DbContexts;
 using PersonasMicroservice.Infrastructure.Repository;
 using PersonasMicroservice.SharedKernel;
 using SimpleInjector;
@@ -32,6 +33,7 @@ namespace PersonasMicroservice
 
         private void RegisterDependencies(Container container)
         {
+            container.Register<PersonasContext>(Lifestyle.Scoped);
             container.Register<IPersonaService, PersonaService>(Lifestyle.Scoped);
             container.Register<IPersonaRepository, PersonaRepository>(Lifestyle.Scoped);
         }

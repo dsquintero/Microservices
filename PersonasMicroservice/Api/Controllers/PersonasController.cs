@@ -18,7 +18,8 @@ namespace PersonasMicroservice.Api.Controllers
         [HttpGet]
         public async Task<IHttpActionResult> GetAll()
         {
-            return Ok();
+            var personas = await _personaService.GetAll();
+            return Ok(personas);
         }
 
         [HttpGet]

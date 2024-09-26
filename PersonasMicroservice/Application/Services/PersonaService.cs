@@ -1,4 +1,5 @@
 ﻿using PersonasMicroservice.Api.DTOs;
+using PersonasMicroservice.Domain.Entities;
 using PersonasMicroservice.Infrastructure.Repository;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -14,9 +15,10 @@ namespace PersonasMicroservice.Application.Services
             _personaRepository = personaRepository;
         }
 
-        public Task<List<PersonaDTO>> GetAll()
+        public Task<List<Persona>> GetAll()
         {
-            throw new System.NotImplementedException();
+            var personas = _personaRepository.GetAll();
+            return personas;
         }
 
         public Task<PersonaDTO> GetById()
