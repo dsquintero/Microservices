@@ -145,6 +145,10 @@
     <Compile Include="Migrations\202409260251336_InitialCreate.Designer.cs">
       <DependentUpon>202409260251336_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202409261451441_SeedTipoPersonaData.cs" />
+    <Compile Include="Migrations\202409261451441_SeedTipoPersonaData.Designer.cs">
+      <DependentUpon>202409261451441_SeedTipoPersonaData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="SharedKernel\WebApiConfig.cs" />
     <Compile Include="Global.asax.cs">
@@ -164,6 +168,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202409260251336_InitialCreate.resx">
       <DependentUpon>202409260251336_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202409261451441_SeedTipoPersonaData.resx">
+      <DependentUpon>202409261451441_SeedTipoPersonaData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

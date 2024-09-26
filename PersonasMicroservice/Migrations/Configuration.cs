@@ -1,9 +1,7 @@
 ﻿namespace PersonasMicroservice.Migrations
 {
-    using System;
-    using System.Data.Entity;
+    using PersonasMicroservice.Domain.Entities;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<PersonasMicroservice.Infrastructure.DbContexts.PersonasContext>
     {
@@ -14,10 +12,13 @@
 
         protected override void Seed(PersonasMicroservice.Infrastructure.DbContexts.PersonasContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            context.TipoPersonas.AddOrUpdate(
+                tp => tp.Desc,
+                new TipoPersona { Desc = "Médico" },
+                new TipoPersona { Desc = "Paciente" }
+                );
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method
-            //  to avoid creating duplicate seed data.
+            context.SaveChanges();
         }
     }
 }
