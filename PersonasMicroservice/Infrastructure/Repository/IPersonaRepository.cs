@@ -7,9 +7,9 @@ namespace PersonasMicroservice.Infrastructure.Repository
     public interface IPersonaRepository
     {
         Task<List<Persona>> GetAll();
-        Task<Persona> GetById();
-        Task<string> Create(Persona personaDto);
-        Task<string> Update(int Id, Persona personaDto);
-        Task<string> Delete(int Id);
+        Task<Persona> GetById(int id);
+        Task<string> Create(Persona persona);
+        Task<string> Update(int id, Persona persona);
+        Task<string> Delete(int id);
     }
 }

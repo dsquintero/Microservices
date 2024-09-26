@@ -7,6 +7,7 @@ namespace PersonasMicroservice.Infrastructure.DbContexts
     {
         public PersonasContext() : base("name=PersonasContext")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
         public DbSet<Persona> Personas { get; set; }
         public DbSet<TipoPersona> TipoPersonas { get; set; }

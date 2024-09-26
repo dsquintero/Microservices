@@ -15,30 +15,57 @@ namespace PersonasMicroservice.Application.Services
             _personaRepository = personaRepository;
         }
 
-        public Task<List<Persona>> GetAll()
+        public async Task<List<Persona>> GetAll()
         {
-            var personas = _personaRepository.GetAll();
-            return personas;
+            return await _personaRepository.GetAll();
         }
 
-        public Task<PersonaDTO> GetById()
+        public async Task<PersonaDTO> GetById(int id)
         {
-            throw new System.NotImplementedException();
+            var persona = await _personaRepository.GetById(id);
+            if (persona == null) return null;
+
+            // Mapeo de Persona a PersonaDTO
+            var personaDto = new PersonaDTO
+            {
+                Nombre = persona.Nombre,
+                TipoPersona = persona.TipoPersona?.Desc
+            };
+
+            return personaDto;
         }
 
-        public Task<string> Create(PersonaDTO personaDto)
+
+        public async Task<string> Create(PersonaDTO personaDto)
         {
-            throw new System.NotImplementedException();
+            // Mapeo de PersonaDTO a Persona
+            var persona = new Persona
+            {
+                Nombre = personaDto.Nombre,
+                FechaDeNacimiento = personaDto.FechaDeNacimiento,
+                IdTipoPersona = personaDto.IdTipoPersona
+            };
+
+            return await _personaRepository.Create(persona);
         }
 
-        public Task<string> Update(int Id, PersonaDTO personaDto)
+        public async Task<string> Update(int id, PersonaDTO personaDto)
         {
-            throw new System.NotImplementedException();
+            // Mapeo de PersonaDTO a Persona
+            var persona = new Persona
+            {
+                Nombre = personaDto.Nombre,
+                FechaDeNacimiento = personaDto.FechaDeNacimiento,
+                IdTipoPersona = personaDto.IdTipoPersona,
+                Active = personaDto.Active
+            };
+
+            return await _personaRepository.Update(id, persona);
         }
 
-        public Task<string> Delete(int Id)
+        public async Task<string> Delete(int id)
         {
-            throw new System.NotImplementedException();
+            return await _personaRepository.Delete(id);
         }
     }
 }
