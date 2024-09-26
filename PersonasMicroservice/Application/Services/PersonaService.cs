@@ -28,14 +28,6 @@ namespace PersonasMicroservice.Application.Services
         {
             var persona = await _personaRepository.GetById(id);
             if (persona == null) return null;
-
-            //// Mapeo de Persona a PersonaDTO
-            //var personaDto = new PersonaDTO
-            //{
-            //    Nombre = persona.Nombre,
-            //    TipoPersona = persona.TipoPersona?.Desc
-            //};
-
             return _mapper.Map<PersonaDTO>(persona);
         }
 
