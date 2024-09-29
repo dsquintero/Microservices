@@ -14,8 +14,10 @@ namespace PersonasMicroservice.Infrastructure.DbContexts
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Persona>().ToTable("Persona");
-            modelBuilder.Entity<TipoPersona>().ToTable("TipoPersona");
+            modelBuilder.Entity<Persona>().
+                ToTable("Persona");
+            modelBuilder.Entity<TipoPersona>()
+                .ToTable("TipoPersona");
             base.OnModelCreating(modelBuilder);
         }
     }

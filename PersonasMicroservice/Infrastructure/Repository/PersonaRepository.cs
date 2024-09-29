@@ -17,14 +17,14 @@ namespace PersonasMicroservice.Infrastructure.Repository
         }
         public async Task<List<Persona>> GetAll()
         {
-            return await _context.Personas.Include("TipoPersona").Where(w => w.Active == true).ToListAsync();
+            return await _context.Personas.Include("TipoPersona").Where(w => w.Activo == true).ToListAsync();
         }
 
         public async Task<Persona> GetById(int id)
         {
             return await _context.Personas
                 .Include("TipoPersona")
-                .FirstOrDefaultAsync(p => p.Id == id && p.Active == true);
+                .FirstOrDefaultAsync(p => p.Id == id && p.Activo == true);
         }
 
         public async Task<string> Create(Persona persona)
@@ -36,7 +36,7 @@ namespace PersonasMicroservice.Infrastructure.Repository
 
         public async Task<string> Update(int id, Persona persona)
         {
-            var personaExistente = await _context.Personas.Where(w => w.Id == id && w.Active == true).FirstOrDefaultAsync();
+            var personaExistente = await _context.Personas.Where(w => w.Id == id && w.Activo == true).FirstOrDefaultAsync();
             if (personaExistente == null)
             {
                 return "Persona no encontrada.";
@@ -44,7 +44,7 @@ namespace PersonasMicroservice.Infrastructure.Repository
 
             // Actualiza los campos necesarios
             personaExistente.Nombre = persona.Nombre;
-            personaExistente.FechaDeNacimiento = persona.FechaDeNacimiento;
+            personaExistente.Fecha_Nacimiento = persona.Fecha_Nacimiento;
 
             await _context.SaveChangesAsync();
             return $"Persona con ID: {id} actualizada correctamente.";
@@ -57,7 +57,7 @@ namespace PersonasMicroservice.Infrastructure.Repository
             {
                 return "Persona no encontrada.";
             }
-            persona.Active = false;
+            persona.Activo = false;
             //_context.Personas.Remove(persona);
             await _context.SaveChangesAsync();
             return $"Persona con ID: {id} eliminada correctamente.";

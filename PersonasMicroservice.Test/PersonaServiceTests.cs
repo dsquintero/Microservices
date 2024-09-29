@@ -85,7 +85,7 @@ namespace PersonasMicroservice.Test
         public async Task Create_ShouldCallRepositoryWithMappedPersona()
         {
             // Arrange
-            var personaDto = new PersonaDTO { Nombre = "Pedro", FechaDeNacimiento = System.DateTime.Now };
+            var personaDto = new PersonaDTO { Nombre = "Pedro", Fecha_Nacimiento = System.DateTime.Now };
             var persona = new Persona { Id = 0, Nombre = "Pedro", IdTipoPersona = 1 };
 
             _mockPersonaRepository.Setup(repo => repo.Create(It.IsAny<Persona>())).ReturnsAsync("Success");
@@ -103,7 +103,7 @@ namespace PersonasMicroservice.Test
         public async Task Update_ShouldCallRepositoryWithUpdatedPersona()
         {
             // Arrange
-            var personaDto = new PersonaDTO { Nombre = "Carlos", FechaDeNacimiento = System.DateTime.Now };
+            var personaDto = new PersonaDTO { Nombre = "Carlos", Fecha_Nacimiento = System.DateTime.Now };
             _mockPersonaRepository.Setup(repo => repo.Update(It.IsAny<int>(), It.IsAny<Persona>())).ReturnsAsync("Updated");
 
             // Act

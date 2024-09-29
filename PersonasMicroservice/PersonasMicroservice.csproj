@@ -141,13 +141,9 @@
     <Compile Include="Infrastructure\DbContexts\PersonasContext.cs" />
     <Compile Include="Infrastructure\Repository\IPersonaRepository.cs" />
     <Compile Include="Infrastructure\Repository\PersonaRepository.cs" />
-    <Compile Include="Migrations\202409260251336_InitialCreate.cs" />
-    <Compile Include="Migrations\202409260251336_InitialCreate.Designer.cs">
-      <DependentUpon>202409260251336_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202409261451441_SeedTipoPersonaData.cs" />
-    <Compile Include="Migrations\202409261451441_SeedTipoPersonaData.Designer.cs">
-      <DependentUpon>202409261451441_SeedTipoPersonaData.cs</DependentUpon>
+    <Compile Include="Migrations\202409290124374_InitalDatabase.cs" />
+    <Compile Include="Migrations\202409290124374_InitalDatabase.Designer.cs">
+      <DependentUpon>202409290124374_InitalDatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="SharedKernel\WebApiConfig.cs" />
@@ -166,14 +162,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202409260251336_InitialCreate.resx">
-      <DependentUpon>202409260251336_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202409261451441_SeedTipoPersonaData.resx">
-      <DependentUpon>202409261451441_SeedTipoPersonaData.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202409290124374_InitalDatabase.resx">
+      <DependentUpon>202409290124374_InitalDatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

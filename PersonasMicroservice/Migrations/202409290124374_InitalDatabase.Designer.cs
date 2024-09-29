@@ -7,13 +7,13 @@ namespace PersonasMicroservice.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.5.1")]
-    public sealed partial class SeedTipoPersonaData : IMigrationMetadata
+    public sealed partial class InitalDatabase : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(SeedTipoPersonaData));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitalDatabase));
         
         string IMigrationMetadata.Id
         {
-            get { return "202409261451441_SeedTipoPersonaData"; }
+            get { return "202409290124374_InitalDatabase"; }
         }
         
         string IMigrationMetadata.Source
