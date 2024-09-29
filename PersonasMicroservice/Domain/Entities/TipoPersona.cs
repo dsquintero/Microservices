@@ -6,8 +6,9 @@ namespace PersonasMicroservice.Domain.Entities
     public class TipoPersona
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
+        [StringLength(20)]
         public string Desc { get; set; }
     }
 }

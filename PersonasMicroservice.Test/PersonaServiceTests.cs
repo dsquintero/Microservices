@@ -86,7 +86,7 @@ namespace PersonasMicroservice.Test
         {
             // Arrange
             var personaDto = new PersonaDTO { Nombre = "Pedro", Fecha_Nacimiento = System.DateTime.Now };
-            var persona = new Persona { Id = 0, Nombre = "Pedro", IdTipoPersona = 1 };
+            //var persona = new Persona { Id = 0, Nombre = "Pedro", IdTipoPersona = 1 };
 
             _mockPersonaRepository.Setup(repo => repo.Create(It.IsAny<Persona>())).ReturnsAsync("Success");
 

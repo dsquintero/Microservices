@@ -7,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F3357224-BC78-4311-B502-A6BC47EE030E}</ProjectGuid>
+    <ProjectGuid>{8A1A0AC5-86B7-4799-B5F7-8AC9B1391D45}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PersonasMicroservice</RootNamespace>
-    <AssemblyName>PersonasMicroservice</AssemblyName>
+    <RootNamespace>CitasMicroservice</RootNamespace>
+    <AssemblyName>CitasMicroservice</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -32,7 +32,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\PersonasMicroservice.xml</DocumentationFile>
+    <DocumentationFile>bin\CitasMicroservice.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -131,19 +131,18 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api\Controllers\PersonasController.cs" />
-    <Compile Include="Application\DTOs\PersonaDTO.cs" />
-    <Compile Include="Application\Mappings\PersonaProfile.cs" />
-    <Compile Include="Application\Services\IPersonaService.cs" />
-    <Compile Include="Application\Services\PersonaService.cs" />
-    <Compile Include="Domain\Entities\Persona.cs" />
-    <Compile Include="Domain\Entities\TipoPersona.cs" />
-    <Compile Include="Infrastructure\DbContexts\PersonasContext.cs" />
-    <Compile Include="Infrastructure\Repository\IPersonaRepository.cs" />
-    <Compile Include="Infrastructure\Repository\PersonaRepository.cs" />
-    <Compile Include="Migrations\202409290124374_InitalDatabase.cs" />
-    <Compile Include="Migrations\202409290124374_InitalDatabase.Designer.cs">
-      <DependentUpon>202409290124374_InitalDatabase.cs</DependentUpon>
+    <Compile Include="Api\Controllers\CitasController.cs" />
+    <Compile Include="Application\DTOs\CitaDTO.cs" />
+    <Compile Include="Application\Mappings\CitaProfile.cs" />
+    <Compile Include="Application\Services\ICitaService.cs" />
+    <Compile Include="Application\Services\CitaService.cs" />
+    <Compile Include="Domain\Entities\Cita.cs" />
+    <Compile Include="Infrastructure\DbContexts\CitasContext.cs" />
+    <Compile Include="Infrastructure\Repository\ICitaRepository.cs" />
+    <Compile Include="Infrastructure\Repository\CitaRepository.cs" />
+    <Compile Include="Migrations\202409290235477_InitalDatabase.cs" />
+    <Compile Include="Migrations\202409290235477_InitalDatabase.Designer.cs">
+      <DependentUpon>202409290235477_InitalDatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="SharedKernel\WebApiConfig.cs" />
@@ -162,8 +161,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202409290124374_InitalDatabase.resx">
-      <DependentUpon>202409290124374_InitalDatabase.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202409290235477_InitalDatabase.resx">
+      <DependentUpon>202409290235477_InitalDatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -181,7 +180,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>41911</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44371/</IISUrl>
+          <IISUrl>https://localhost:44372/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

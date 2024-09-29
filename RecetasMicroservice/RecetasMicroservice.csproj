@@ -7,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F3357224-BC78-4311-B502-A6BC47EE030E}</ProjectGuid>
+    <ProjectGuid>{8E586CDA-2F2F-4D50-BD49-37935677EF18}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PersonasMicroservice</RootNamespace>
-    <AssemblyName>PersonasMicroservice</AssemblyName>
+    <RootNamespace>RecetasMicroservice</RootNamespace>
+    <AssemblyName>RecetasMicroservice</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -32,7 +32,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\PersonasMicroservice.xml</DocumentationFile>
+    <DocumentationFile>bin\RecetasMicroservice.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -131,20 +131,16 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api\Controllers\PersonasController.cs" />
-    <Compile Include="Application\DTOs\PersonaDTO.cs" />
-    <Compile Include="Application\Mappings\PersonaProfile.cs" />
-    <Compile Include="Application\Services\IPersonaService.cs" />
-    <Compile Include="Application\Services\PersonaService.cs" />
-    <Compile Include="Domain\Entities\Persona.cs" />
-    <Compile Include="Domain\Entities\TipoPersona.cs" />
-    <Compile Include="Infrastructure\DbContexts\PersonasContext.cs" />
-    <Compile Include="Infrastructure\Repository\IPersonaRepository.cs" />
-    <Compile Include="Infrastructure\Repository\PersonaRepository.cs" />
-    <Compile Include="Migrations\202409290124374_InitalDatabase.cs" />
-    <Compile Include="Migrations\202409290124374_InitalDatabase.Designer.cs">
-      <DependentUpon>202409290124374_InitalDatabase.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Api\Controllers\RecetaController.cs" />
+    <Compile Include="Application\DTOs\RecetaDTO.cs" />
+    <Compile Include="Application\Mappings\RecetaProfile.cs" />
+    <Compile Include="Application\Services\IRecetaService.cs" />
+    <Compile Include="Application\Services\RecetaService.cs" />
+    <Compile Include="Domain\Entities\Receta.cs" />
+    <Compile Include="Domain\Entities\Medicamento.cs" />
+    <Compile Include="Infrastructure\DbContexts\RecetasContext.cs" />
+    <Compile Include="Infrastructure\Repository\IRecetaRepository.cs" />
+    <Compile Include="Infrastructure\Repository\RecetaRepository.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="SharedKernel\WebApiConfig.cs" />
     <Compile Include="Global.asax.cs">
@@ -161,11 +157,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202409290124374_InitalDatabase.resx">
-      <DependentUpon>202409290124374_InitalDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -181,7 +172,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>41911</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44371/</IISUrl>
+          <IISUrl>https://localhost:44373/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
