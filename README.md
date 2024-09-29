@@ -115,7 +115,10 @@ GET http://localhost:5000/api/Personas
 - Validaciones: Existen validaciones en los controladores para asegurar que los datos sean válidos antes de ejecutar las operaciones de negocio.
 
 ### Contacto
-Si tienes preguntas o necesitas soporte adicional, puedes contactarme en:
+Si tienes alguna duda o pregunta sobre esta prueba técnica, por favor contacta a:
 
-Correo: dquintero.ing@gmail.com
-GitHub: https://github.com/dsquintero
+- **Nombre**: [Daniel Quintero]
+- **Email**: dquintero.ing@gmail.com
+- **GitHub**: https://github.com/dsquintero
+
+Estaré disponible para responder cualquier consulta o proporcionar aclaraciones adicionales.
