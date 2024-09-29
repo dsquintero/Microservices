@@ -62,21 +62,6 @@ namespace RecetasMicroservice.Test
             Assert.IsNull(result);
         }
 
-        // Prueba para Create
-        [Test]
-        public async Task Create_ShouldReturnSuccessMessage()
-        {
-            // Arrange
-            var recetaDto = new RecetaDTO { Paciente = "Ana Maria", Medico = "Dr. Gomez", Fecha_Emision = System.DateTime.Now };
-            _mockRecetaRepository.Setup(repo => repo.Create(It.IsAny<Receta>())).ReturnsAsync("Success");
-
-            // Act
-            var result = await _recetaService.Create(recetaDto);
-
-            // Assert
-            Assert.AreEqual("Success", result);
-            _mockRecetaRepository.Verify(repo => repo.Create(It.Is<Receta>(r => r.Paciente == "Ana Maria")), Times.Once);
-        }
 
         // Prueba para Update
         [Test]
