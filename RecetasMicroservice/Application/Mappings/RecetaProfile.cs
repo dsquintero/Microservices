@@ -9,9 +9,11 @@ namespace RecetasMicroservice.Application.Mappings
         public RecetaProfile()
         {
             CreateMap<Receta, RecetaDTO>()
-                .ForMember(dest => dest.TipoPersona, opt => opt.MapFrom(src => src.TipoPersona != null ? src.TipoPersona.Desc : string.Empty))
+                .ForMember(dest => dest.Medicamentos, opt => opt.MapFrom(src => src.Medicamentos))
                 .ReverseMap();
 
+            CreateMap<Medicamento, MedicamentoDTO>()
+                .ReverseMap();
         }
     }
 }

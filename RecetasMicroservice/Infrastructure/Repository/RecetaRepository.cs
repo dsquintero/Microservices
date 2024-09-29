@@ -18,6 +18,7 @@ namespace RecetasMicroservice.Infrastructure.Repository
         public async Task<Receta> GetById(int id)
         {
             return await _context.Recetas
+                .Include("Medicamentos")
                 .FirstOrDefaultAsync(p => p.Id == id);
         }
 

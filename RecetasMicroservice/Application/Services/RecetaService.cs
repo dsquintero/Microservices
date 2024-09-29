@@ -1,52 +1,44 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using RecetasMicroservice.Api.DTOs;
 using RecetasMicroservice.Domain.Entities;
 using RecetasMicroservice.Infrastructure.Repository;
+using System.Threading.Tasks;
 
 namespace RecetasMicroservice.Application.Services
 {
     public class RecetaService : IRecetaService
     {
-        private readonly IRecetaRepository _personaRepository;
+        private readonly IRecetaRepository _recetaRepository;
         private readonly IMapper _mapper;
 
-        public RecetaService(IRecetaRepository personaRepository, IMapper mapper)
+        public RecetaService(IRecetaRepository recetaRepository, IMapper mapper)
         {
-            _personaRepository = personaRepository;
+            _recetaRepository = recetaRepository;
             _mapper = mapper;
-        }
-
-        public async Task<List<RecetaDTO>> GetAll()
-        {
-            var personas = await _personaRepository.GetAll();
-            return _mapper.Map<List<RecetaDTO>>(personas);
         }
 
         public async Task<RecetaDTO> GetById(int id)
         {
-            var persona = await _personaRepository.GetById(id);
-            if (persona == null) return null;
-            return _mapper.Map<RecetaDTO>(persona);
+            var receta = await _recetaRepository.GetById(id);
+            if (receta == null) return null;
+            return _mapper.Map<RecetaDTO>(receta);
         }
 
-        public async Task<string> Create(int idTipoPersona, RecetaDTO personaDto)
+        public async Task<string> Create(RecetaDTO recetaDto)
         {
-            var persona = _mapper.Map<Receta>(personaDto);
-            persona.IdTipoPersona = idTipoPersona;
-            return await _personaRepository.Create(persona);
+            var receta = _mapper.Map<Receta>(recetaDto);
+            return await _recetaRepository.Create(receta);
         }
 
-        public async Task<string> Update(int id, RecetaDTO personaDto)
+        public async Task<string> Update(int id, RecetaDTO recetaDto)
         {
-            var persona = _mapper.Map<Receta>(personaDto);
-            return await _personaRepository.Update(id, persona);
+            var receta = _mapper.Map<Receta>(recetaDto);
+            return await _recetaRepository.Update(id, receta);
         }
 
         public async Task<string> Delete(int id)
         {
-            return await _personaRepository.Delete(id);
+            return await _recetaRepository.Delete(id);
         }
     }
 }

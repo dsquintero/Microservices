@@ -132,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\Controllers\RecetaController.cs" />
+    <Compile Include="Application\DTOs\MedicamentoDTO.cs" />
     <Compile Include="Application\DTOs\RecetaDTO.cs" />
     <Compile Include="Application\Mappings\RecetaProfile.cs" />
     <Compile Include="Application\Services\IRecetaService.cs" />
@@ -141,6 +142,10 @@
     <Compile Include="Infrastructure\DbContexts\RecetasContext.cs" />
     <Compile Include="Infrastructure\Repository\IRecetaRepository.cs" />
     <Compile Include="Infrastructure\Repository\RecetaRepository.cs" />
+    <Compile Include="Migrations\202409290847454_InitalDatabase.cs" />
+    <Compile Include="Migrations\202409290847454_InitalDatabase.Designer.cs">
+      <DependentUpon>202409290847454_InitalDatabase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="SharedKernel\WebApiConfig.cs" />
     <Compile Include="Global.asax.cs">
@@ -156,6 +161,11 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202409290847454_InitalDatabase.resx">
+      <DependentUpon>202409290847454_InitalDatabase.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
