@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace PersonasMicroservice.Application.DTOs
+namespace RecetasMicroservice.Application.DTOs
 {
     public class PersonaDTO
     {
-        public string TipoPersona { get; set; }
+        public int Id { get; set; }
         public string Identificacion { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
@@ -12,6 +12,5 @@ namespace PersonasMicroservice.Application.DTOs
         public string Genero { get; set; }
         public string Telefono { get; set; }
         public string Email { get; set; }
-
     }
 }

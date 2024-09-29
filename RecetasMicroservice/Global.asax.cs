@@ -1,4 +1,3 @@
-using System.Web.Http;
 using AutoMapper;
 using RecetasMicroservice.Application.Mappings;
 using RecetasMicroservice.Application.Services;
@@ -8,6 +7,7 @@ using RecetasMicroservice.SharedKernel;
 using SimpleInjector;
 using SimpleInjector.Integration.WebApi;
 using SimpleInjector.Lifestyles;
+using System.Web.Http;
 
 namespace RecetasMicroservice
 {
@@ -42,6 +42,8 @@ namespace RecetasMicroservice
             container.Register<RecetasContext>(Lifestyle.Scoped);
             container.Register<IRecetaService, RecetaService>(Lifestyle.Scoped);
             container.Register<IRecetaRepository, RecetaRepository>(Lifestyle.Scoped);
+            container.Register<IPersonaService, PersonaService>(Lifestyle.Scoped);
+            container.Register<ICitaService, CitaService>(Lifestyle.Scoped);
         }
 
         private void RegisterAutoMapper(Container container)

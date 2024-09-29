@@ -1,7 +1,7 @@
-﻿using PersonasMicroservice.Api.DTOs;
-using PersonasMicroservice.Application.Services;
+﻿using PersonasMicroservice.Application.Services;
 using System.Threading.Tasks;
 using System.Web.Http;
+using PersonasMicroservice.Application.DTOs;
 
 namespace PersonasMicroservice.Api.Controllers
 {

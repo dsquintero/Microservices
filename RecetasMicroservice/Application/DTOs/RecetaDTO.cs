@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace RecetasMicroservice.Api.DTOs
+namespace RecetasMicroservice.Application.DTOs
 {
     public class RecetaDTO
     {

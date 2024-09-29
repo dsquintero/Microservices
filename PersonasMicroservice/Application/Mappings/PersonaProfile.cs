@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using PersonasMicroservice.Api.DTOs;
+using PersonasMicroservice.Application.DTOs;
 using PersonasMicroservice.Domain.Entities;
 
 namespace PersonasMicroservice.Application.Mappings

@@ -42,6 +42,8 @@ namespace CitasMicroservice
             container.Register<CitasContext>(Lifestyle.Scoped);
             container.Register<ICitaService, CitaService>(Lifestyle.Scoped);
             container.Register<ICitaRepository, CitaRepository>(Lifestyle.Scoped);
+            container.Register<IPersonaService, PersonaService>(Lifestyle.Scoped);
+
         }
 
         private void RegisterAutoMapper(Container container)

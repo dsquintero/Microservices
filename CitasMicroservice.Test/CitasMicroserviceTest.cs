@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using CitasMicroservice.Api.DTOs;
+using CitasMicroservice.Application.DTOs;
 using CitasMicroservice.Application.Services;
 using CitasMicroservice.Domain.Entities;
 using CitasMicroservice.Infrastructure.Repository;
@@ -14,6 +14,7 @@ namespace CitasMicroservice.Test
     {
         private Mock<ICitaRepository> _mockCitaRepository;
         private CitaService _citaService;
+        private IPersonaService _personaService;
         private IMapper _mapper;
 
         [SetUp]
@@ -27,7 +28,7 @@ namespace CitasMicroservice.Test
             });
             _mapper = config.CreateMapper();
 
-            _citaService = new CitaService(_mockCitaRepository.Object, _mapper);
+            _citaService = new CitaService(_mockCitaRepository.Object, _personaService, _mapper);
         }
 
         // Prueba para GetById

@@ -1,4 +1,4 @@
-﻿namespace RecetasMicroservice.Api.DTOs
+﻿namespace RecetasMicroservice.Application.DTOs
 {
     public class MedicamentoDTO
     {

@@ -1,4 +1,4 @@
-﻿using CitasMicroservice.Api.DTOs;
+﻿using CitasMicroservice.Application.DTOs;
 using CitasMicroservice.Application.Services;
 using System;
 using System.Threading.Tasks;

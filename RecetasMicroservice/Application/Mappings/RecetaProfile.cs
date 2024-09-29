@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using RecetasMicroservice.Api.DTOs;
+using RecetasMicroservice.Application.DTOs;
 using RecetasMicroservice.Domain.Entities;
 
 namespace RecetasMicroservice.Application.Mappings

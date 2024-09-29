@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
 using Moq;
 using NUnit.Framework;
-using PersonasMicroservice.Api.DTOs;
 using PersonasMicroservice.Application.Mappings;
 using PersonasMicroservice.Application.Services;
 using PersonasMicroservice.Domain.Entities;
 using PersonasMicroservice.Infrastructure.Repository;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using PersonasMicroservice.Application.DTOs;
 
 namespace PersonasMicroservice.Test
 {

@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using PersonasMicroservice.Api.DTOs;
 using PersonasMicroservice.Domain.Entities;
 using PersonasMicroservice.Infrastructure.Repository;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using PersonasMicroservice.Application.DTOs;
 
 namespace PersonasMicroservice.Application.Services
 {
@@ -31,11 +31,11 @@ namespace PersonasMicroservice.Application.Services
             return _mapper.Map<PersonaDTO>(persona);
         }
 
-        public async Task<PersonaDTO> GetByIdentificacion(int TipoPersona, string Identificacion)
+        public async Task<Persona> GetByIdentificacion(int TipoPersona, string Identificacion)
         {
             var persona = await _personaRepository.GetByIdentificacion(TipoPersona, Identificacion.Trim());
             if (persona == null) return null;
-            return _mapper.Map<PersonaDTO>(persona);
+            return persona;
         }
 
         public async Task<string> Create(int idTipoPersona, PersonaDTO personaDto)

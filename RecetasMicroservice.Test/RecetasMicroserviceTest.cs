@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Moq;
 using NUnit.Framework;
-using RecetasMicroservice.Api.DTOs;
+using RecetasMicroservice.Application.DTOs;
 using RecetasMicroservice.Application.Services;
 using RecetasMicroservice.Domain.Entities;
 using RecetasMicroservice.Infrastructure.Repository;
@@ -15,6 +15,8 @@ namespace RecetasMicroservice.Test
         private Mock<IRecetaRepository> _mockRecetaRepository;
         private RecetaService _recetaService;
         private IMapper _mapper;
+        private IPersonaService _personaService;
+        private ICitaService _citaService;
 
         [SetUp]
         public void Setup()
@@ -28,7 +30,7 @@ namespace RecetasMicroservice.Test
             });
             _mapper = config.CreateMapper();
 
-            _recetaService = new RecetaService(_mockRecetaRepository.Object, _mapper);
+            _recetaService = new RecetaService(_mockRecetaRepository.Object, _personaService, _citaService, _mapper);
         }
 
         // Prueba para GetById

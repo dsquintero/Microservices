@@ -1,5 +1,5 @@
-﻿using RecetasMicroservice.Api.DTOs;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using RecetasMicroservice.Application.DTOs;
 
 namespace RecetasMicroservice.Application.Services
 {
