@@ -48,6 +48,13 @@ namespace CitasMicroservice.Infrastructure.Repository
             return $"Cita con ID: {id} actualizada correctamente.";
         }
 
+        public async Task<string> Finish(Cita cita)
+        {
+            cita.Estado = "Finalizada";
+            await _context.SaveChangesAsync();
+            return $"Cita con ID: {cita.Id} Finalizada correctamente.";
+        }
+
         public async Task<string> Delete(int id)
         {
             var cita = await _context.Citas.FindAsync(id);

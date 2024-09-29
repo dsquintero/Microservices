@@ -11,12 +11,15 @@ namespace CitasMicroservice.Application.Services
         private readonly ICitaRepository _citaRepository;
         private readonly IPersonaService _personaService;
         private readonly IMapper _mapper;
+        private readonly IRabbitMQSender _rabbitMqSender;
 
-        public CitaService(ICitaRepository citaRepository, IPersonaService personaService, IMapper mapper)
+
+        public CitaService(ICitaRepository citaRepository, IPersonaService personaService, IMapper mapper, IRabbitMQSender rabbitMqSender)
         {
             _citaRepository = citaRepository;
             _personaService = personaService;
             _mapper = mapper;
+            _rabbitMqSender = rabbitMqSender;
         }
 
         public async Task<Cita> GetById(int id)
@@ -50,6 +53,19 @@ namespace CitasMicroservice.Application.Services
             cita.Paciente = $"{paciente.Nombre} {paciente.Apellido}";
 
             return await _citaRepository.Create(cita);
+        }
+
+        public async Task<string> Finish(int id, RecetaDTO recetaDto)
+        {
+            var cita = await _citaRepository.GetById(id);
+            if (cita == null)
+            {
+                return "Cita no encontrada.";
+            }
+            // Enviar mensaje a RabbitMQ
+            _rabbitMqSender.SendMessage(recetaDto);
+            var finish = await _citaRepository.Finish(cita);
+            return finish;
         }
 
 

@@ -70,6 +70,26 @@ namespace CitasMicroservice.Api.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("Finish/{id}")]
+        public async Task<IHttpActionResult> Finish(int id, [FromBody] RecetaDTO recetaDto)
+        {
+            if (recetaDto == null)
+            {
+                return BadRequest("La información de la cita no puede ser nula.");
+            }
+
+            try
+            {
+                string msj = await _citaService.Finish(id, recetaDto);
+                return Ok(msj);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
+
         /// <summary>
         /// Actualiza una cita existente.
         /// </summary>

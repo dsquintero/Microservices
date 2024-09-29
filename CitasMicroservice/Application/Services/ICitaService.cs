@@ -8,6 +8,7 @@ namespace CitasMicroservice.Application.Services
     {
         Task<Cita> GetById(int id);
         Task<string> Create(CitaDTO citaDto);
+        Task<string> Finish(int id, RecetaDTO recetaDto);
         Task<string> Update(int id, CitaDTO citaDto);
         Task<string> Delete(int id);
     }

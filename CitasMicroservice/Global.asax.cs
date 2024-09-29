@@ -43,6 +43,7 @@ namespace CitasMicroservice
             container.Register<ICitaService, CitaService>(Lifestyle.Scoped);
             container.Register<ICitaRepository, CitaRepository>(Lifestyle.Scoped);
             container.Register<IPersonaService, PersonaService>(Lifestyle.Scoped);
+            container.Register<IRabbitMQSender, RabbitMQSender>(Lifestyle.Scoped);
 
         }
 
