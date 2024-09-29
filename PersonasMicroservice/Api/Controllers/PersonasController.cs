@@ -75,7 +75,7 @@ namespace PersonasMicroservice.Api.Controllers
             }
 
             string msj = await _personaService.Create(idTipoPersona, personaDto);
-            return Created($"api/Personas/{personaDto.Id}", msj);
+            return Created("api/Personas", msj);
         }
 
         /// <summary>
