@@ -50,3 +50,33 @@ Cada microservicio tiene operaciones CRUD completas (Crear, Leer, Actualizar y E
 ```
 https://github.com/dsquintero/Microservices.git
 ```
+
+2. **Configurar la base de datos**:
+
+- Actualiza las cadenas de conexión a la base de datos en el archivo Web.config de cada microservicio.
+- Ejecuta las migraciones de base de datos con Entity Framework para generar las tablas necesarias.
+
+```
+Update-Database
+```
+
+3. Construir y ejecutar los microservicios:
+
+- Abre la solución en Visual Studio.
+- Asegúrate de que cada proyecto de microservicio esté configurado para iniciar correctamente.
+- Ejecuta la solución para que los microservicios inicien.
+
+4. Probar los endpoints:
+
+Utiliza Postman u otra herramienta para realizar solicitudes HTTP a los microservicios.
+
+### Detalles Adicionales
+Filtros de Excepciones: Los microservicios están configurados para manejar excepciones globalmente a través de filtros de excepciones personalizados.
+DTOs: Se utilizan para evitar exponer directamente las entidades del modelo a través de las APIs.
+Validaciones: Existen validaciones en los controladores para asegurar que los datos sean válidos antes de ejecutar las operaciones de negocio.
+
+### Contacto
+Si tienes preguntas o necesitas soporte adicional, puedes contactarme en:
+
+Correo: ejemplo@correo.com
+GitHub: github.com/usuario
