@@ -27,6 +27,13 @@ namespace PersonasMicroservice.Infrastructure.Repository
                 .FirstOrDefaultAsync(p => p.Id == id && p.Activo == true);
         }
 
+        public async Task<Persona> GetByIdentificacion(int TipoPersona, string Identificacion)
+        {
+            return await _context.Personas
+                .Include("TipoPersona")
+                .FirstOrDefaultAsync(p => p.IdTipoPersona == TipoPersona && p.Identificacion.Equals(Identificacion) && p.Activo == true);
+        }
+
         public async Task<string> Create(Persona persona)
         {
             _context.Personas.Add(persona);

@@ -54,6 +54,35 @@ namespace PersonasMicroservice.Api.Controllers
             return Ok(persona);
         }
 
+
+        /// <summary>
+        /// Obtiene una persona por su TipoPersona e Identificacion
+        /// </summary>
+        /// <param name="TipoPersona">Tipo de la persona</param>
+        /// <param name="Identificacion">Indentificacion de la persona</param>
+        /// <returns>Persona si es encontrada, de lo contrario NotFound.</returns>
+        [HttpGet]
+        public async Task<IHttpActionResult> GetByIdentificacion(int TipoPersona, string Identificacion)
+        {
+            if (TipoPersona <= 0 || (TipoPersona != 1 && TipoPersona != 2))
+            {
+                return BadRequest("El tipo de persona debe ser 1 (Médico) o 2 (Paciente).");
+            }
+
+            if (string.IsNullOrEmpty(Identificacion))
+            {
+                return BadRequest("La Identificacion de la persona no puede ser nula o vacia.");
+            }
+
+            var persona = await _personaService.GetByIdentificacion(TipoPersona, Identificacion);
+            if (persona == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(persona);
+        }
+
         /// <summary>
         /// Crea una nueva persona.
         /// </summary>

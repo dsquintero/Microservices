@@ -31,6 +31,13 @@ namespace PersonasMicroservice.Application.Services
             return _mapper.Map<PersonaDTO>(persona);
         }
 
+        public async Task<PersonaDTO> GetByIdentificacion(int TipoPersona, string Identificacion)
+        {
+            var persona = await _personaRepository.GetByIdentificacion(TipoPersona, Identificacion.Trim());
+            if (persona == null) return null;
+            return _mapper.Map<PersonaDTO>(persona);
+        }
+
         public async Task<string> Create(int idTipoPersona, PersonaDTO personaDto)
         {
             var persona = _mapper.Map<Persona>(personaDto);
