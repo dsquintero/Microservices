@@ -60,23 +60,62 @@ https://github.com/dsquintero/Microservices.git
 Update-Database
 ```
 
-3. Construir y ejecutar los microservicios:
+3. **Construir y ejecutar los microservicios**:
 
 - Abre la solución en Visual Studio.
 - Asegúrate de que cada proyecto de microservicio esté configurado para iniciar correctamente.
 - Ejecuta la solución para que los microservicios inicien.
 
-4. Probar los endpoints:
+4. **Probar los endpoints**:
 
-Utiliza Postman u otra herramienta para realizar solicitudes HTTP a los microservicios.
+- Utiliza Postman u otra herramienta para realizar solicitudes HTTP a los microservicios.
+
+- Por ejemplo, para obtener una lista de personas:
+
+```
+GET http://localhost:5000/api/Personas
+```
+
+- Los detalles de los endpoints para cada microservicio se encuentran en la sección "Documentación de API" a continuación.
+
+### Documentación de API
+
+#### Microservicio de Personas
+
+| Método | Ruta                           | Descripción                              |
+|--------|--------------------------------|------------------------------------------|
+| GET    | `/api/Personas`                | Obtener todas las personas               |
+| GET    | `/api/Personas/{id}`           | Obtener persona por ID                   |
+| POST   | `/api/Personas/{idTipoPersona}`| Crear una nueva persona                  |
+| PUT    | `/api/Personas/{id}`           | Actualizar una persona                   |
+| DELETE | `/api/Personas/{id}`           | Eliminar una persona                     |
+
+#### Microservicio de Citas
+
+| Método | Ruta                           | Descripción                              |
+|--------|--------------------------------|------------------------------------------|
+| GET    | `/api/Citas/{id}`              | Obtener una cita por ID                  |
+| POST   | `/api/Citas`                   | Crear una nueva cita                     |
+| PUT    | `/api/Citas/{id}`              | Actualizar una cita                      |
+| DELETE | `/api/Citas/{id}`              | Eliminar una cita                        |
+
+#### Microservicio de Recetas
+
+| Método | Ruta                           | Descripción                              |
+|--------|--------------------------------|------------------------------------------|
+| GET    | `/api/Recetas/{id}`            | Obtener una receta por ID                |
+| POST   | `/api/Recetas`                 | Crear una nueva receta                   |
+| PUT    | `/api/Recetas/{id}`            | Actualizar una receta                    |
+| DELETE | `/api/Recetas/{id}`            | Eliminar una receta                      |
+
 
 ### Detalles Adicionales
-Filtros de Excepciones: Los microservicios están configurados para manejar excepciones globalmente a través de filtros de excepciones personalizados.
-DTOs: Se utilizan para evitar exponer directamente las entidades del modelo a través de las APIs.
-Validaciones: Existen validaciones en los controladores para asegurar que los datos sean válidos antes de ejecutar las operaciones de negocio.
+- **Filtros de Excepciones**: Los microservicios están configurados para manejar excepciones globalmente a través de filtros de excepciones personalizados.
+- **DTOs**: Se utilizan para evitar exponer directamente las entidades del modelo a través de las APIs.
+- Validaciones: Existen validaciones en los controladores para asegurar que los datos sean válidos antes de ejecutar las operaciones de negocio.
 
 ### Contacto
 Si tienes preguntas o necesitas soporte adicional, puedes contactarme en:
 
-Correo: ejemplo@correo.com
-GitHub: github.com/usuario
+Correo: dquintero.ing@gmail.com
+GitHub: https://github.com/dsquintero
