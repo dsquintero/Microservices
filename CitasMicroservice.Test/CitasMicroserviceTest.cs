@@ -16,6 +16,7 @@ namespace CitasMicroservice.Test
         private CitaService _citaService;
         private IPersonaService _personaService;
         private IMapper _mapper;
+        private IRabbitMQSender rabbitMqSender;
 
         [SetUp]
         public void Setup()
@@ -28,7 +29,7 @@ namespace CitasMicroservice.Test
             });
             _mapper = config.CreateMapper();
 
-            _citaService = new CitaService(_mockCitaRepository.Object, _personaService, _mapper);
+            _citaService = new CitaService(_mockCitaRepository.Object, _personaService, _mapper, rabbitMqSender);
         }
 
         // Prueba para GetById

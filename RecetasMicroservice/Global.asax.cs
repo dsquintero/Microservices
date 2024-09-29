@@ -7,6 +7,7 @@ using RecetasMicroservice.SharedKernel;
 using SimpleInjector;
 using SimpleInjector.Integration.WebApi;
 using SimpleInjector.Lifestyles;
+using System.Threading;
 using System.Web.Http;
 
 namespace RecetasMicroservice
@@ -35,6 +36,8 @@ namespace RecetasMicroservice
                 new SimpleInjectorWebApiDependencyResolver(container);
 
             GlobalConfiguration.Configure(WebApiConfig.Register);
+
+            StartRabbitMQListener(container);
         }
 
         private void RegisterDependencies(Container container)
@@ -54,6 +57,24 @@ namespace RecetasMicroservice
             });
 
             container.RegisterInstance(config.CreateMapper());
+        }
+
+        private void StartRabbitMQListener(Container container)
+        {
+
+            // Inicia el listener en un hilo separado
+            Thread listenerThread = new Thread(() =>
+            {
+                using (AsyncScopedLifestyle.BeginScope(container))
+                {
+                    var _recetaService = container.GetInstance<IRecetaService>();
+                    RabbitMQListener listener = new RabbitMQListener(_recetaService);
+                    listener.StartListening();
+                }
+            });
+
+            listenerThread.IsBackground = true; // Hacer que el hilo sea un hilo de fondo
+            listenerThread.Start();
         }
     }
 }
